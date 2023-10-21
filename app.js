@@ -2,87 +2,51 @@ import React from "react";
 
 import ReactDOM from "react-dom/client";
 
-const parent = React.createElement(
 
-    "div",
+// React.createElement => Object => HTMLElement(render)
+const heading = React.createElement(
 
-    {
-        id: "parent"
-    },
+    "h1",
 
-    [
-        React.createElement(
+    {id: "heading"},
 
-            "div",
-
-            {
-                id: "child1"
-            },
-
-            [
-                React.createElement(
-
-                    "h1",
-
-                    {
-                        id: "child1h1"
-                    },
-
-                    "Child1's h1🚀"
-                ),
-
-                React.createElement(
-
-                    "h2",
-
-                    {
-                        id: "child1h2"
-                    },
-
-                    "Child1's h2 "
-                )
-            ]
-        ),
-
-        React.createElement(
-
-            "div",
-
-            {
-                id: "child2"
-            },
-
-            [
-
-                React.createElement(
-
-                    "h1",
-
-                    {
-                        id: "child2h1"
-                    },
-
-                    "Child2's h1"
-                ),
-
-                React.createElement(
-
-                    "h2",
-
-                    {
-                        id: "child2h2"
-                    },
-
-                    "Child2's h2"
-                )
-            ]
-        ),
-    ]
+    "Namaste React 🚀"
 );
 
-const commence = ReactDOM.createRoot(
+console.log(heading);
 
-    document.getElementById("root")
+
+// React Element
+const title = (
+
+    <h1>This is title.</h1>
 );
 
-commence.render(parent);
+console.log(title);
+
+// React Components
+// Class based Components
+// Functional Components
+
+// React Component
+const BodyComponent = () => (
+
+    <h1>This is a Body Component.</h1>
+);
+
+const TrailerComponent = () => (
+
+    <div id="container">
+        {title}
+        {BodyComponent()}
+        <BodyComponent />
+        <BodyComponent></BodyComponent>
+        <h1 className="Trailer">This is a Trailer Component.</h1>
+    </div>
+    
+);
+
+
+ const root = ReactDOM.createRoot(document.getElementById("root"));
+
+ root.render(<TrailerComponent />);
